@@ -12,11 +12,7 @@ from django.utils.translation import gettext_lazy as _
 from aws_django.users.forms import UserAdminChangeForm
 from aws_django.users.models import User
 from aws_django.users.tests.factories import UserFactory
-from aws_django.users.views import (
-    UserRedirectView,
-    UserUpdateView,
-    user_detail_view,
-)
+from aws_django.users.views import UserRedirectView, UserUpdateView, user_detail_view
 
 pytestmark = pytest.mark.django_db
 
