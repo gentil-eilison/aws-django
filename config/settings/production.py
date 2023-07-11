@@ -172,3 +172,15 @@ LOGGING = {
 
 # Your stuff...
 # ------------------------------------------------------------------------------
+CELERY_accept_content = ['application/json']
+CELERY_task_serializer = 'json'
+CELERY_TASK_DEFAULT_QUEUE = 'aws-django-queue'
+# CELERY_APP = 'config.celery_app:app'
+CELERY_BROKER_URL = "sqs://%s:%s@" % (AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY)
+CELERY_BROKER_TRANSPORT_OPTIONS = {
+    "region": "us-east-1",
+    'queue_name_prefix': 'aws-django-queue',
+    'visibility_timeout': 7200,
+    'polling_interval': 1
+}
+CELERY_result_backend = None
