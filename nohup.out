@@ -1,0 +1,785 @@
+Watching for file changes with StatReloader
+INFO 2023-07-12 07:39:16,688 autoreload 110783 140529815588864 Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 12, 2023 - 07:39:16
+Django version 4.2.3, using settings 'config.settings.production'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+
+[12/Jul/2023 07:40:01] "GET /admin/ HTTP/1.1" 200 11223
+[12/Jul/2023 07:40:01] "GET /static/admin/css/base.css HTTP/1.1" 200 21207
+[12/Jul/2023 07:40:01] "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2929
+[12/Jul/2023 07:40:01] "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2694
+[12/Jul/2023 07:40:01] "GET /static/admin/js/theme.js HTTP/1.1" 304 0
+[12/Jul/2023 07:40:01] "GET /static/admin/css/dashboard.css HTTP/1.1" 304 0
+[12/Jul/2023 07:40:01] "GET /static/admin/css/responsive.css HTTP/1.1" 200 18533
+[12/Jul/2023 07:40:01] "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+[12/Jul/2023 07:40:01] "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 304 0
+[12/Jul/2023 07:40:01] "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 304 0
+[12/Jul/2023 07:40:01] "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 200 392
+[12/Jul/2023 07:40:07] "GET /albums/ HTTP/1.1" 404 3145
+[12/Jul/2023 07:40:16] "GET / HTTP/1.1" 200 3314
+[12/Jul/2023 07:40:16] "GET /static/css/project.css HTTP/1.1" 304 0
+[12/Jul/2023 07:40:16] "GET /static/js/project.js HTTP/1.1" 304 0
+[12/Jul/2023 07:40:16] "GET /static/images/favicons/favicon.ico HTTP/1.1" 304 0
+[12/Jul/2023 07:40:21] "GET / HTTP/1.1" 200 3314
+[12/Jul/2023 07:40:27] "GET /users/ HTTP/1.1" 404 3516
+[12/Jul/2023 07:40:43] "GET /about/ HTTP/1.1" 200 3314
+[12/Jul/2023 07:40:48] "GET /user/ HTTP/1.1" 404 3074
+[12/Jul/2023 07:40:57] "GET /albums/ HTTP/1.1" 404 3145
+WARNING 2023-07-12 07:41:07,422 connection 110783 140529739232832 No hostname was supplied. Reverting to default 'localhost'
+Internal Server Error: /albums/list/
+Traceback (most recent call last):
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/utils/functional.py", line 32, in __call__
+    return self.__value__
+AttributeError: 'ChannelPromise' object has no attribute '__value__'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/connection.py", line 472, in _reraise_as_library_errors
+    yield
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/connection.py", line 459, in _ensure_connection
+    return retry_over_time(
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/utils/functional.py", line 318, in retry_over_time
+    return fun(*args, **kwargs)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/connection.py", line 941, in _connection_factory
+    self._connection = self._establish_connection()
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/connection.py", line 867, in _establish_connection
+    conn = self.transport.establish_connection()
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/transport/pyamqp.py", line 203, in establish_connection
+    conn.connect()
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/amqp/connection.py", line 323, in connect
+    self.transport.connect()
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/amqp/transport.py", line 129, in connect
+    self._connect(self.host, self.port, self.connect_timeout)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/amqp/transport.py", line 184, in _connect
+    self.sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/lib/python3.10/contextlib.py", line 79, in inner
+    return func(*args, **kwds)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/django/views/generic/list.py", line 174, in get
+    context = self.get_context_data()
+  File "/home/ubuntu/projetos/aws-django/aws_django/core/views.py", line 12, in get_context_data
+    add.delay(2, 4)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/celery/app/task.py", line 444, in delay
+    return self.apply_async(args, kwargs)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/celery/app/task.py", line 594, in apply_async
+    return app.send_task(
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/celery/app/base.py", line 798, in send_task
+    amqp.send_task_message(P, name, message, **options)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/celery/app/amqp.py", line 517, in send_task_message
+    ret = producer.publish(
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/messaging.py", line 186, in publish
+    return _publish(
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/connection.py", line 563, in _ensured
+    return fun(*args, **kwargs)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/messaging.py", line 195, in _publish
+    channel = self.channel
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/messaging.py", line 218, in _get_channel
+    channel = self._channel = channel()
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/utils/functional.py", line 34, in __call__
+    value = self.__value__ = self.__contract__()
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/messaging.py", line 234, in <lambda>
+    channel = ChannelPromise(lambda: connection.default_channel)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/connection.py", line 960, in default_channel
+    self._ensure_connection(**conn_opts)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/connection.py", line 458, in _ensure_connection
+    with ctx():
+  File "/usr/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/connection.py", line 476, in _reraise_as_library_errors
+    raise ConnectionError(str(exc)) from exc
+kombu.exceptions.OperationalError: [Errno 111] Connection refused
+ERROR 2023-07-12 07:41:13,538 log 110783 140529739232832 Internal Server Error: /albums/list/
+Traceback (most recent call last):
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/utils/functional.py", line 32, in __call__
+    return self.__value__
+AttributeError: 'ChannelPromise' object has no attribute '__value__'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/connection.py", line 472, in _reraise_as_library_errors
+    yield
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/connection.py", line 459, in _ensure_connection
+    return retry_over_time(
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/utils/functional.py", line 318, in retry_over_time
+    return fun(*args, **kwargs)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/connection.py", line 941, in _connection_factory
+    self._connection = self._establish_connection()
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/connection.py", line 867, in _establish_connection
+    conn = self.transport.establish_connection()
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/transport/pyamqp.py", line 203, in establish_connection
+    conn.connect()
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/amqp/connection.py", line 323, in connect
+    self.transport.connect()
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/amqp/transport.py", line 129, in connect
+    self._connect(self.host, self.port, self.connect_timeout)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/amqp/transport.py", line 184, in _connect
+    self.sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/lib/python3.10/contextlib.py", line 79, in inner
+    return func(*args, **kwds)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/django/views/generic/list.py", line 174, in get
+    context = self.get_context_data()
+  File "/home/ubuntu/projetos/aws-django/aws_django/core/views.py", line 12, in get_context_data
+    add.delay(2, 4)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/celery/app/task.py", line 444, in delay
+    return self.apply_async(args, kwargs)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/celery/app/task.py", line 594, in apply_async
+    return app.send_task(
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/celery/app/base.py", line 798, in send_task
+    amqp.send_task_message(P, name, message, **options)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/celery/app/amqp.py", line 517, in send_task_message
+    ret = producer.publish(
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/messaging.py", line 186, in publish
+    return _publish(
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/connection.py", line 563, in _ensured
+    return fun(*args, **kwargs)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/messaging.py", line 195, in _publish
+    channel = self.channel
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/messaging.py", line 218, in _get_channel
+    channel = self._channel = channel()
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/utils/functional.py", line 34, in __call__
+    value = self.__value__ = self.__contract__()
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/messaging.py", line 234, in <lambda>
+    channel = ChannelPromise(lambda: connection.default_channel)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/connection.py", line 960, in default_channel
+    self._ensure_connection(**conn_opts)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/connection.py", line 458, in _ensure_connection
+    with ctx():
+  File "/usr/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/connection.py", line 476, in _reraise_as_library_errors
+    raise ConnectionError(str(exc)) from exc
+kombu.exceptions.OperationalError: [Errno 111] Connection refused
+[12/Jul/2023 07:41:13] "GET /albums/list/ HTTP/1.1" 500 226453
+/home/ubuntu/projetos/aws-django/config/settings/production.py changed, reloading.
+INFO 2023-07-12 07:55:15,048 autoreload 110783 140529815588864 /home/ubuntu/projetos/aws-django/config/settings/production.py changed, reloading.
+Watching for file changes with StatReloader
+INFO 2023-07-12 07:55:15,703 autoreload 110900 139984453517312 Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 12, 2023 - 07:55:16
+Django version 4.2.3, using settings 'config.settings.production'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+
+/home/ubuntu/projetos/aws-django/config/settings/production.py changed, reloading.
+INFO 2023-07-12 07:58:23,916 autoreload 110900 139984453517312 /home/ubuntu/projetos/aws-django/config/settings/production.py changed, reloading.
+Watching for file changes with StatReloader
+INFO 2023-07-12 07:58:24,451 autoreload 110919 140093504139264 Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 12, 2023 - 07:58:24
+Django version 4.2.3, using settings 'config.settings.production'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+
+/home/ubuntu/projetos/aws-django/config/settings/production.py changed, reloading.
+INFO 2023-07-12 07:59:47,177 autoreload 110919 140093504139264 /home/ubuntu/projetos/aws-django/config/settings/production.py changed, reloading.
+Traceback (most recent call last):
+  File "/home/ubuntu/projetos/aws-django/manage.py", line 31, in <module>
+    execute_from_command_line(sys.argv)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+    utility.execute()
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/django/core/management/__init__.py", line 382, in execute
+    settings.INSTALLED_APPS
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/django/conf/__init__.py", line 102, in __getattr__
+    self._setup(name)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/django/conf/__init__.py", line 89, in _setup
+    self._wrapped = Settings(settings_module)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/django/conf/__init__.py", line 217, in __init__
+    mod = importlib.import_module(self.SETTINGS_MODULE)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 879, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1017, in get_code
+  File "<frozen importlib._bootstrap_external>", line 947, in source_to_code
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/ubuntu/projetos/aws-django/config/settings/production.py", line 182
+    CELERY_BROKER_URL = f'sqs://{AWS_ACCESS_KEY_ID}:{AWS_SECRET_ACCESS_KEY}@sqs.{AWS_REGION}.amazonaws.com/aws-django-queue.fifo?region={AWS_REGION}&use_ssl=True''
+                                                                                                                                                                  ^
+SyntaxError: unterminated string literal (detected at line 182)
+Watching for file changes with StatReloader
+INFO 2023-07-12 08:48:07,583 autoreload 111240 140656044605440 Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 12, 2023 - 08:48:07
+Django version 4.2.3, using settings 'config.settings.production'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+
+[12/Jul/2023 08:48:16] "GET / HTTP/1.1" 200 3314
+WARNING 2023-07-12 08:48:30,345 connection 111240 140655967860288 No hostname was supplied. Reverting to default 'localhost'
+Internal Server Error: /albums/list/
+Traceback (most recent call last):
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/utils/functional.py", line 32, in __call__
+    return self.__value__
+AttributeError: 'ChannelPromise' object has no attribute '__value__'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/connection.py", line 472, in _reraise_as_library_errors
+    yield
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/connection.py", line 459, in _ensure_connection
+    return retry_over_time(
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/utils/functional.py", line 318, in retry_over_time
+    return fun(*args, **kwargs)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/connection.py", line 941, in _connection_factory
+    self._connection = self._establish_connection()
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/connection.py", line 867, in _establish_connection
+    conn = self.transport.establish_connection()
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/transport/pyamqp.py", line 203, in establish_connection
+    conn.connect()
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/amqp/connection.py", line 323, in connect
+    self.transport.connect()
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/amqp/transport.py", line 129, in connect
+    self._connect(self.host, self.port, self.connect_timeout)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/amqp/transport.py", line 184, in _connect
+    self.sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/lib/python3.10/contextlib.py", line 79, in inner
+    return func(*args, **kwds)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/django/views/generic/list.py", line 174, in get
+    context = self.get_context_data()
+  File "/home/ubuntu/projetos/aws-django/aws_django/core/views.py", line 12, in get_context_data
+    add.delay(2, 4)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/celery/app/task.py", line 444, in delay
+    return self.apply_async(args, kwargs)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/celery/app/task.py", line 594, in apply_async
+    return app.send_task(
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/celery/app/base.py", line 798, in send_task
+    amqp.send_task_message(P, name, message, **options)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/celery/app/amqp.py", line 517, in send_task_message
+    ret = producer.publish(
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/messaging.py", line 186, in publish
+    return _publish(
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/connection.py", line 563, in _ensured
+    return fun(*args, **kwargs)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/messaging.py", line 195, in _publish
+    channel = self.channel
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/messaging.py", line 218, in _get_channel
+    channel = self._channel = channel()
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/utils/functional.py", line 34, in __call__
+    value = self.__value__ = self.__contract__()
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/messaging.py", line 234, in <lambda>
+    channel = ChannelPromise(lambda: connection.default_channel)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/connection.py", line 960, in default_channel
+    self._ensure_connection(**conn_opts)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/connection.py", line 458, in _ensure_connection
+    with ctx():
+  File "/usr/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/connection.py", line 476, in _reraise_as_library_errors
+    raise ConnectionError(str(exc)) from exc
+kombu.exceptions.OperationalError: [Errno 111] Connection refused
+ERROR 2023-07-12 08:48:36,424 log 111240 140655967860288 Internal Server Error: /albums/list/
+Traceback (most recent call last):
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/utils/functional.py", line 32, in __call__
+    return self.__value__
+AttributeError: 'ChannelPromise' object has no attribute '__value__'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/connection.py", line 472, in _reraise_as_library_errors
+    yield
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/connection.py", line 459, in _ensure_connection
+    return retry_over_time(
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/utils/functional.py", line 318, in retry_over_time
+    return fun(*args, **kwargs)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/connection.py", line 941, in _connection_factory
+    self._connection = self._establish_connection()
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/connection.py", line 867, in _establish_connection
+    conn = self.transport.establish_connection()
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/transport/pyamqp.py", line 203, in establish_connection
+    conn.connect()
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/amqp/connection.py", line 323, in connect
+    self.transport.connect()
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/amqp/transport.py", line 129, in connect
+    self._connect(self.host, self.port, self.connect_timeout)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/amqp/transport.py", line 184, in _connect
+    self.sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/lib/python3.10/contextlib.py", line 79, in inner
+    return func(*args, **kwds)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/django/views/generic/list.py", line 174, in get
+    context = self.get_context_data()
+  File "/home/ubuntu/projetos/aws-django/aws_django/core/views.py", line 12, in get_context_data
+    add.delay(2, 4)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/celery/app/task.py", line 444, in delay
+    return self.apply_async(args, kwargs)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/celery/app/task.py", line 594, in apply_async
+    return app.send_task(
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/celery/app/base.py", line 798, in send_task
+    amqp.send_task_message(P, name, message, **options)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/celery/app/amqp.py", line 517, in send_task_message
+    ret = producer.publish(
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/messaging.py", line 186, in publish
+    return _publish(
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/connection.py", line 563, in _ensured
+    return fun(*args, **kwargs)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/messaging.py", line 195, in _publish
+    channel = self.channel
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/messaging.py", line 218, in _get_channel
+    channel = self._channel = channel()
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/utils/functional.py", line 34, in __call__
+    value = self.__value__ = self.__contract__()
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/messaging.py", line 234, in <lambda>
+    channel = ChannelPromise(lambda: connection.default_channel)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/connection.py", line 960, in default_channel
+    self._ensure_connection(**conn_opts)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/connection.py", line 458, in _ensure_connection
+    with ctx():
+  File "/usr/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/connection.py", line 476, in _reraise_as_library_errors
+    raise ConnectionError(str(exc)) from exc
+kombu.exceptions.OperationalError: [Errno 111] Connection refused
+[12/Jul/2023 08:48:36] "GET /albums/list/ HTTP/1.1" 500 226436
+/home/ubuntu/projetos/aws-django/aws_django/core/tasks.py changed, reloading.
+INFO 2023-07-12 08:53:33,686 autoreload 111240 140656044605440 /home/ubuntu/projetos/aws-django/aws_django/core/tasks.py changed, reloading.
+Watching for file changes with StatReloader
+INFO 2023-07-12 08:53:34,217 autoreload 111286 140719051919360 Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 12, 2023 - 08:53:34
+Django version 4.2.3, using settings 'config.settings.production'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+
+WARNING 2023-07-12 08:53:41,755 connection 111286 140718975743552 No hostname was supplied. Reverting to default 'localhost'
+Internal Server Error: /albums/list/
+Traceback (most recent call last):
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/utils/functional.py", line 32, in __call__
+    return self.__value__
+AttributeError: 'ChannelPromise' object has no attribute '__value__'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/connection.py", line 472, in _reraise_as_library_errors
+    yield
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/connection.py", line 459, in _ensure_connection
+    return retry_over_time(
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/utils/functional.py", line 318, in retry_over_time
+    return fun(*args, **kwargs)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/connection.py", line 941, in _connection_factory
+    self._connection = self._establish_connection()
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/connection.py", line 867, in _establish_connection
+    conn = self.transport.establish_connection()
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/transport/pyamqp.py", line 203, in establish_connection
+    conn.connect()
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/amqp/connection.py", line 323, in connect
+    self.transport.connect()
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/amqp/transport.py", line 129, in connect
+    self._connect(self.host, self.port, self.connect_timeout)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/amqp/transport.py", line 184, in _connect
+    self.sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/lib/python3.10/contextlib.py", line 79, in inner
+    return func(*args, **kwds)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/django/views/generic/list.py", line 174, in get
+    context = self.get_context_data()
+  File "/home/ubuntu/projetos/aws-django/aws_django/core/views.py", line 12, in get_context_data
+    add.delay(2, 4)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/celery/app/task.py", line 444, in delay
+    return self.apply_async(args, kwargs)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/celery/app/task.py", line 594, in apply_async
+    return app.send_task(
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/celery/app/base.py", line 798, in send_task
+    amqp.send_task_message(P, name, message, **options)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/celery/app/amqp.py", line 517, in send_task_message
+    ret = producer.publish(
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/messaging.py", line 186, in publish
+    return _publish(
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/connection.py", line 563, in _ensured
+    return fun(*args, **kwargs)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/messaging.py", line 195, in _publish
+    channel = self.channel
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/messaging.py", line 218, in _get_channel
+    channel = self._channel = channel()
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/utils/functional.py", line 34, in __call__
+    value = self.__value__ = self.__contract__()
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/messaging.py", line 234, in <lambda>
+    channel = ChannelPromise(lambda: connection.default_channel)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/connection.py", line 960, in default_channel
+    self._ensure_connection(**conn_opts)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/connection.py", line 458, in _ensure_connection
+    with ctx():
+  File "/usr/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/connection.py", line 476, in _reraise_as_library_errors
+    raise ConnectionError(str(exc)) from exc
+kombu.exceptions.OperationalError: [Errno 111] Connection refused
+ERROR 2023-07-12 08:53:47,838 log 111286 140718975743552 Internal Server Error: /albums/list/
+Traceback (most recent call last):
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/utils/functional.py", line 32, in __call__
+    return self.__value__
+AttributeError: 'ChannelPromise' object has no attribute '__value__'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/connection.py", line 472, in _reraise_as_library_errors
+    yield
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/connection.py", line 459, in _ensure_connection
+    return retry_over_time(
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/utils/functional.py", line 318, in retry_over_time
+    return fun(*args, **kwargs)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/connection.py", line 941, in _connection_factory
+    self._connection = self._establish_connection()
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/connection.py", line 867, in _establish_connection
+    conn = self.transport.establish_connection()
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/transport/pyamqp.py", line 203, in establish_connection
+    conn.connect()
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/amqp/connection.py", line 323, in connect
+    self.transport.connect()
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/amqp/transport.py", line 129, in connect
+    self._connect(self.host, self.port, self.connect_timeout)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/amqp/transport.py", line 184, in _connect
+    self.sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/lib/python3.10/contextlib.py", line 79, in inner
+    return func(*args, **kwds)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/django/views/generic/list.py", line 174, in get
+    context = self.get_context_data()
+  File "/home/ubuntu/projetos/aws-django/aws_django/core/views.py", line 12, in get_context_data
+    add.delay(2, 4)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/celery/app/task.py", line 444, in delay
+    return self.apply_async(args, kwargs)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/celery/app/task.py", line 594, in apply_async
+    return app.send_task(
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/celery/app/base.py", line 798, in send_task
+    amqp.send_task_message(P, name, message, **options)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/celery/app/amqp.py", line 517, in send_task_message
+    ret = producer.publish(
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/messaging.py", line 186, in publish
+    return _publish(
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/connection.py", line 563, in _ensured
+    return fun(*args, **kwargs)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/messaging.py", line 195, in _publish
+    channel = self.channel
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/messaging.py", line 218, in _get_channel
+    channel = self._channel = channel()
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/utils/functional.py", line 34, in __call__
+    value = self.__value__ = self.__contract__()
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/messaging.py", line 234, in <lambda>
+    channel = ChannelPromise(lambda: connection.default_channel)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/connection.py", line 960, in default_channel
+    self._ensure_connection(**conn_opts)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/connection.py", line 458, in _ensure_connection
+    with ctx():
+  File "/usr/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/connection.py", line 476, in _reraise_as_library_errors
+    raise ConnectionError(str(exc)) from exc
+kombu.exceptions.OperationalError: [Errno 111] Connection refused
+[12/Jul/2023 08:53:47] "GET /albums/list/ HTTP/1.1" 500 226573
+Watching for file changes with StatReloader
+INFO 2023-07-12 08:55:22,618 autoreload 111312 139801251581952 Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 12, 2023 - 08:55:22
+Django version 4.2.3, using settings 'config.settings.production'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+
+WARNING 2023-07-12 08:56:10,344 connection 111312 139801106839104 No hostname was supplied. Reverting to default 'localhost'
+Internal Server Error: /albums/list/
+Traceback (most recent call last):
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/utils/functional.py", line 32, in __call__
+    return self.__value__
+AttributeError: 'ChannelPromise' object has no attribute '__value__'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/connection.py", line 472, in _reraise_as_library_errors
+    yield
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/connection.py", line 459, in _ensure_connection
+    return retry_over_time(
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/utils/functional.py", line 318, in retry_over_time
+    return fun(*args, **kwargs)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/connection.py", line 941, in _connection_factory
+    self._connection = self._establish_connection()
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/connection.py", line 867, in _establish_connection
+    conn = self.transport.establish_connection()
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/transport/pyamqp.py", line 203, in establish_connection
+    conn.connect()
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/amqp/connection.py", line 323, in connect
+    self.transport.connect()
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/amqp/transport.py", line 129, in connect
+    self._connect(self.host, self.port, self.connect_timeout)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/amqp/transport.py", line 184, in _connect
+    self.sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/lib/python3.10/contextlib.py", line 79, in inner
+    return func(*args, **kwds)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/django/views/generic/list.py", line 174, in get
+    context = self.get_context_data()
+  File "/home/ubuntu/projetos/aws-django/aws_django/core/views.py", line 12, in get_context_data
+    add.delay(2, 4)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/celery/app/task.py", line 444, in delay
+    return self.apply_async(args, kwargs)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/celery/app/task.py", line 594, in apply_async
+    return app.send_task(
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/celery/app/base.py", line 798, in send_task
+    amqp.send_task_message(P, name, message, **options)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/celery/app/amqp.py", line 517, in send_task_message
+    ret = producer.publish(
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/messaging.py", line 186, in publish
+    return _publish(
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/connection.py", line 563, in _ensured
+    return fun(*args, **kwargs)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/messaging.py", line 195, in _publish
+    channel = self.channel
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/messaging.py", line 218, in _get_channel
+    channel = self._channel = channel()
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/utils/functional.py", line 34, in __call__
+    value = self.__value__ = self.__contract__()
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/messaging.py", line 234, in <lambda>
+    channel = ChannelPromise(lambda: connection.default_channel)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/connection.py", line 960, in default_channel
+    self._ensure_connection(**conn_opts)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/connection.py", line 458, in _ensure_connection
+    with ctx():
+  File "/usr/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/connection.py", line 476, in _reraise_as_library_errors
+    raise ConnectionError(str(exc)) from exc
+kombu.exceptions.OperationalError: [Errno 111] Connection refused
+ERROR 2023-07-12 08:56:16,426 log 111312 139801106839104 Internal Server Error: /albums/list/
+Traceback (most recent call last):
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/utils/functional.py", line 32, in __call__
+    return self.__value__
+AttributeError: 'ChannelPromise' object has no attribute '__value__'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/connection.py", line 472, in _reraise_as_library_errors
+    yield
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/connection.py", line 459, in _ensure_connection
+    return retry_over_time(
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/utils/functional.py", line 318, in retry_over_time
+    return fun(*args, **kwargs)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/connection.py", line 941, in _connection_factory
+    self._connection = self._establish_connection()
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/connection.py", line 867, in _establish_connection
+    conn = self.transport.establish_connection()
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/transport/pyamqp.py", line 203, in establish_connection
+    conn.connect()
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/amqp/connection.py", line 323, in connect
+    self.transport.connect()
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/amqp/transport.py", line 129, in connect
+    self._connect(self.host, self.port, self.connect_timeout)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/amqp/transport.py", line 184, in _connect
+    self.sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/lib/python3.10/contextlib.py", line 79, in inner
+    return func(*args, **kwds)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/django/views/generic/list.py", line 174, in get
+    context = self.get_context_data()
+  File "/home/ubuntu/projetos/aws-django/aws_django/core/views.py", line 12, in get_context_data
+    add.delay(2, 4)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/celery/app/task.py", line 444, in delay
+    return self.apply_async(args, kwargs)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/celery/app/task.py", line 594, in apply_async
+    return app.send_task(
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/celery/app/base.py", line 798, in send_task
+    amqp.send_task_message(P, name, message, **options)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/celery/app/amqp.py", line 517, in send_task_message
+    ret = producer.publish(
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/messaging.py", line 186, in publish
+    return _publish(
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/connection.py", line 563, in _ensured
+    return fun(*args, **kwargs)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/messaging.py", line 195, in _publish
+    channel = self.channel
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/messaging.py", line 218, in _get_channel
+    channel = self._channel = channel()
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/utils/functional.py", line 34, in __call__
+    value = self.__value__ = self.__contract__()
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/messaging.py", line 234, in <lambda>
+    channel = ChannelPromise(lambda: connection.default_channel)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/connection.py", line 960, in default_channel
+    self._ensure_connection(**conn_opts)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/connection.py", line 458, in _ensure_connection
+    with ctx():
+  File "/usr/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/home/ubuntu/projetos/aws-django/venv/lib/python3.10/site-packages/kombu/connection.py", line 476, in _reraise_as_library_errors
+    raise ConnectionError(str(exc)) from exc
+kombu.exceptions.OperationalError: [Errno 111] Connection refused
+[12/Jul/2023 08:56:16] "GET /albums/list/ HTTP/1.1" 500 226572
+/home/ubuntu/projetos/aws-django/config/__init__.py changed, reloading.
+INFO 2023-07-12 09:08:34,722 autoreload 111312 139801251581952 /home/ubuntu/projetos/aws-django/config/__init__.py changed, reloading.
+Watching for file changes with StatReloader
+INFO 2023-07-12 09:08:35,335 autoreload 111395 140351987937280 Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 12, 2023 - 09:08:35
+Django version 4.2.3, using settings 'config.settings.production'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+
+/home/ubuntu/projetos/aws-django/config/__init__.py changed, reloading.
+INFO 2023-07-12 09:08:56,943 autoreload 111395 140351987937280 /home/ubuntu/projetos/aws-django/config/__init__.py changed, reloading.
+Watching for file changes with StatReloader
+INFO 2023-07-12 09:08:57,537 autoreload 111400 140497907134464 Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 12, 2023 - 09:08:57
+Django version 4.2.3, using settings 'config.settings.production'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+
+[12/Jul/2023 09:09:43] "GET / HTTP/1.1" 200 3314
+/home/ubuntu/projetos/aws-django/config/settings/production.py changed, reloading.
+INFO 2023-07-12 16:02:18,134 autoreload 111400 140497907134464 /home/ubuntu/projetos/aws-django/config/settings/production.py changed, reloading.
+Watching for file changes with StatReloader
+INFO 2023-07-12 16:02:18,978 autoreload 113988 140340322770944 Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 12, 2023 - 16:02:19
+Django version 4.2.3, using settings 'config.settings.production'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+
+[12/Jul/2023 16:02:43] "GET /albums/list/ HTTP/1.1" 200 943
+[12/Jul/2023 16:02:43] "GET /static/css/project.css HTTP/1.1" 304 0
+[12/Jul/2023 20:10:40] "GET / HTTP/1.1" 200 3314
+[12/Jul/2023 20:10:40] "GET /albums/list/ HTTP/1.1" 200 943
+[12/Jul/2023 20:10:40] "GET /static/css/project.css HTTP/1.1" 304 0
+[12/Jul/2023 20:10:40] "GET /static/js/project.js HTTP/1.1" 304 0
+[12/Jul/2023 20:10:40] "GET /favicon.ico HTTP/1.1" 404 3092
+[12/Jul/2023 20:10:40] "GET /static/images/favicons/favicon.ico HTTP/1.1" 304 0
+[12/Jul/2023 20:16:48] "GET / HTTP/1.1" 200 3314
+[12/Jul/2023 20:17:05] "GET /albums/list/ HTTP/1.1" 200 943
+/home/ubuntu/projetos/aws-django/aws_django/core/tasks.py changed, reloading.
+INFO 2023-07-12 20:17:19,163 autoreload 113988 140340322770944 /home/ubuntu/projetos/aws-django/aws_django/core/tasks.py changed, reloading.
+Watching for file changes with StatReloader
+INFO 2023-07-12 20:17:19,945 autoreload 115345 140006591496192 Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 12, 2023 - 20:17:20
+Django version 4.2.3, using settings 'config.settings.production'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+
+[12/Jul/2023 20:24:02] "GET /albums/list/ HTTP/1.1" 200 943

@@ -6,4 +6,4 @@ from celery import shared_task
 # def update_field(product_id):
 @shared_task
 def add(x, y):
-    return x + y
+    return f"Message sent: {x+y}"
