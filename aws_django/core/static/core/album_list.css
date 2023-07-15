@@ -4,6 +4,10 @@ main {
     gap: 2rem;
 }
 
-header {
-    padding: 1.2rem;
+article figcaption {
+    text-align: center;
+}
+
+article h2 {
+    text-transform: uppercase;
 }

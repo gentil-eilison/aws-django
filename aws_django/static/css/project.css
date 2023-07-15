@@ -16,4 +16,33 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: 'Inter', Arial, sans-serif;
+}
+
+header {
+  padding: 1.2rem;
+  border: solid 2px black;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #2D2D2D;
+  color: rgb(179, 179, 16);
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  background-color: azure;
+  flex-grow: 1;
+}
+
+header a {
+  color: #FFF;
 }
