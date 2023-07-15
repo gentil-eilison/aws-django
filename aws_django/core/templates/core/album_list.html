@@ -7,13 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AWS - Django</title>
     <link rel="stylesheet" href="{% static 'css/project.css' %}" />
+    <link rel="stylesheet" href="{% static 'core/album_list.css' %}" />
   </head>
   <body>
     <header>
       <h1>AWS - DJANGO | Testando SQS e S3</h1>
+      <h2>Imagens diretamente da AWS S3</h2>
     </header>
     <main>
-      <h2>Imagens diretamente da AWS S3</h2>
       {% for object in object_list %}
         <article>
           <h2>{{ object.title }}</h2>
