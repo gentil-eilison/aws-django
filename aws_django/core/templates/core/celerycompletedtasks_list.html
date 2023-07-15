@@ -7,7 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AWS - Django</title>
     <link rel="stylesheet" href="{% static 'css/project.css' %}" />
-    <link rel="stylesheet" href="{% static 'core/album_list.css' %}" />
+    <link rel="stylesheet"
+          href="{% static 'core/celerycompletedtasks_list.css' %}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap"
+          rel="stylesheet" />
   </head>
   <body>
     <header>
@@ -15,22 +20,22 @@
       <h2>Envie tarefas para a fila!</h2>
     </header>
     <main>
-      {% if object_list|length == 0 %}
-        <p>Lista vazia!</p>
-      {% else %}
-        {% for object in object_list %}
-          <article>
-            <p>{{ object.message }}</p>
-            <p>{{ object.status }}</p>
-          </article>
-        {% endfor %}
-      {% endif %}
       <form action="{% url 'albums:create-celery-task' %}", method="POST">
         {% csrf_token %}
         <label for="task_message">Mensagem da tarefa</label>
         <input required id="task_message" type="text" name="task_message" />
         <button type="submit">Enviar</button>
       </form>
+      {% if object_list|length == 0 %}
+        <p>Lista vazia!</p>
+      {% else %}
+        {% for object in object_list %}
+          <article>
+            <p>{{ object.message }}</p>
+            <p class="message-status">{{ object.status }}</p>
+          </article>
+        {% endfor %}
+      {% endif %}
     </main>
   </body>
   <script>
@@ -38,5 +43,22 @@
     submitButton.addEventListener("click", element => {
       window.alert("Task enviada para AWS!")
     })
+
+    const messageStatus = document.getElementsByClassName("message-status")
+    const messageStatusElements = Array.from(messageStatus)
+
+    messageStatusElements.forEach((e => {
+      switch (e.textContent) {
+        case "OK":
+          e.style.color = "green";
+          break;
+        case "PROCESSING":
+          e.style.color = "rgb(223, 223, 79)";
+          break;
+        case "FAILED":
+          e.style.color = "red";
+          break;
+      }
+    }))
   </script>
 </html>
